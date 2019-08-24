@@ -2,9 +2,17 @@
 ![](https://img.shields.io/badge/build-passing-green.svg)
 
 
-node 爬取瓦片制作自己的地图服务
+node 爬取瓦片arcgis server发布的地图瓦片
 =============================
-
+---------------
+## 使用方法
+1. npm i 
+2. npm run dev
+3. url 打开 http://localhost:3030
+4. 拖动地图，不存在的瓦片图即可下载至org文件夹
+---------------
+2019年8月24日 10:34:27
+因业务需求，需要在内网使用地图服务，因此将[arcgis server](!http://map.geoq.cn/arcgis/rest/services/ChinaOnlineStreetPurplishBlue/MapServer)发布的地图瓦片图下载下来
 ---------------
 2019年8月23日 16:57:41
 Git clone下来，不能用，修改了部分代码

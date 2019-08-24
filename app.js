@@ -41,6 +41,10 @@ let imgOrOther = function (filename, response){
       ***********************
     `
   )
+  if(typeof index1 === 'number'){
+    console.log(`isImage is return true!!!`)
+    return true
+  }
   // 匹配以下格式 能匹配上则为图片
   let imgFormat = ["jpg", "png", "gif", "jpeg"];
   let isImage = false
@@ -71,12 +75,18 @@ http.createServer(function (request, response) {
     let localPath = __dirname + pathname;
     console.log(`localPath is ${localPath}`)
     fs.exists(localPath, function (exists) {
-      if (!exists) { // 不存在去下载
+      if (!exists) { 
+        // 不存在去下载
         console.log(`not exists`)
         console.log(333)
         let position = pathname.split("/");
         console.log(`position is ${JSON.stringify(position)}`)
         let href = `https://b.tile.openstreetmap.org/${position[2]}/${position[3]}/${position[4]}`;
+        href = `http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineStreetPurplishBlue/MapServer/tile/${position[2]}/${position[3]}/${position[4]}`;
+        href = `http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineStreetPurplishBlue/MapServer/tile/{z}/{y}/{x}`
+        href = `http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineStreetPurplishBlue/MapServer/tile/${position[2]}/${position[3]}/${position[4]}`;
+                                                                                                    //zzzzzzzzzzzzzzyyyyyyyyyyyyyyxxxxxxxxxxxxxx
+        
         JoinTheDownLoadQueue(href);
         console.log(444)
         response.write("200")
